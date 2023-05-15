@@ -1,0 +1,27 @@
+<c3p0-config>
+  <named-config name="c3p0"> 
+
+    <property name="driverClass">com.mysql.jdbc.Driver</property>  
+    <property name="jdbcUrl">jdbc:mysql://127.0.0.1/jsp_library_book_ms</property>  
+    <property name="user">root</property>  
+    <property name="password">123456</property>  
+  	
+    <property name="acquireIncrement">50</property>
+    <property name="initialPoolSize">100</property>
+    <property name="minPoolSize">50</property>
+    <property name="maxPoolSize">1000</property>
+
+    <!-- intergalactoApp adopts a different approach to configuring statement caching -->
+    <property name="maxStatements">10</property> 
+    <property name="maxStatementsPerConnection">5</property>
+
+    <!-- he's important, but there's only one of him -->
+    <user-overrides user="master-of-the-universe"> 
+      <property name="acquireIncrement">1</property>
+      <property name="initialPoolSize">1</property>
+      <property name="minPoolSize">1</property>
+      <property name="maxPoolSize">5</property>
+      <property name="maxStatementsPerConnection">50</property>
+    </user-overrides>
+  </named-config>
+</c3p0-config>

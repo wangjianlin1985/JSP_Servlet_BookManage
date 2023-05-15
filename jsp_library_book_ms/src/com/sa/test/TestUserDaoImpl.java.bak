@@ -1,0 +1,99 @@
+// 
+// 
+// 
+
+package com.sa.test;
+
+import org.junit.jupiter.api.Assertions;
+import com.sa.web.Page;
+import com.sa.web.CriteriaUser;
+import org.junit.jupiter.api.Test;
+import com.sa.domain.User;
+import java.sql.Connection;
+import com.sa.web.ConnectionContext;
+import com.sa.util.JDBCUtils;
+import com.sa.dao.impl.UserDaoImpl;
+
+class TestUserDaoImpl
+{
+    private UserDaoImpl userDao;
+    
+    TestUserDaoImpl() {
+        this.userDao = new UserDaoImpl();
+    }
+    
+    @Test
+    void testGetUser() {
+        try {
+            final Connection connection = JDBCUtils.getConnection();
+            ConnectionContext.getInstance().bind(connection);
+            final User user = this.userDao.getUser("3151906212");
+            System.out.println(user);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @Test
+    void testInsertUser() {
+        try {
+            final Connection connection = JDBCUtils.getConnection();
+            ConnectionContext.getInstance().bind(connection);
+            final User user = new User("111", "David", "\u73af\u5883\u79d1\u5b66\u4e0e\u5de5\u7a0b\u5b66\u9662", "\u7ed9\u6392\u6c34\u5de5\u7a0b", "\u7ed9\u6392\u6c341502", "111", "");
+            this.userDao.insert(user);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @Test
+    void testDelete() {
+        try {
+            final Connection connection = JDBCUtils.getConnection();
+            ConnectionContext.getInstance().bind(connection);
+            this.userDao.delete("111");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @Test
+    void testUpdateUser() {
+        try {
+            final Connection connection = JDBCUtils.getConnection();
+            ConnectionContext.getInstance().bind(connection);
+            final User user = new User("111", "^David", "^\u73af\u5883\u79d1\u5b66\u4e0e\u5de5\u7a0b\u5b66\u9662", "^\u7ed9\u6392\u6c34\u5de5\u7a0b", "^\u7ed9\u6392\u6c341502", "^111", "");
+            this.userDao.update(user);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @Test
+    void testGetPage() {
+        try {
+            final Connection connection = JDBCUtils.getConnection();
+            ConnectionContext.getInstance().bind(connection);
+            final CriteriaUser cu = new CriteriaUser(new User("", "", "", "\u8f6f\u4ef6\u5de5\u7a0b", "", "", ""), 10);
+            final Page<User> page = this.userDao.getPage(cu);
+            System.out.println(page);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @Test
+    void testGetTotalBookNumber() {
+        Assertions.fail("Not yet implemented");
+    }
+    
+    @Test
+    void testGetUserPageList() {
+        Assertions.fail("Not yet implemented");
+    }
+}

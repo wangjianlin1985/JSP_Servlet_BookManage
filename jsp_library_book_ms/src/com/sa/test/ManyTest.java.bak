@@ -1,0 +1,40 @@
+// 
+// 
+// 
+
+package com.sa.test;
+
+import java.io.IOException;
+import java.io.File;
+import org.junit.jupiter.api.Test;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+class ManyTest
+{
+    @Test
+    void test() {
+        final Date date = new Date();
+        final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        System.out.println(sdf.format(date));
+        final Calendar c = Calendar.getInstance();
+        System.out.println(sdf.format(c.getTime()));
+    }
+    
+    @Test
+    void Test2() {
+        System.out.println(1);
+    }
+    
+    @Test
+    void Test3() {
+        final File file = new File("/img/user/hah.txt");
+        try {
+            file.createNewFile();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

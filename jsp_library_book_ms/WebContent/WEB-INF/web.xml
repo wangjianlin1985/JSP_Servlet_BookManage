@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Book_ManSys</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>encoding</param-name>
+    <param-value>utf-8</param-value>
+  </context-param>
+  <context-param>
+    <param-name>overFine</param-name>
+    <param-value>0.1</param-value>
+  </context-param>
+  <context-param>
+    <param-name>redirectPage</param-name>
+    <param-value>/login.jsp</param-value>
+  </context-param>
+  <context-param>
+    <param-name>checkedUrls</param-name>
+    <param-value>/WEB-INF/pages/fine.jsp,/WEB-INF/pages/tab.jsp,/WEB-INF/pages/user-info.jsp,/WEB-INF/pages/user-update.jsp,/WEB-INF/pages/book-update.jsp,/WEB-INF/pages/book-borrow.jsp,/WEB-INF/pages/book-return.jsp,/WEB-INF/pages/changepwd.jsp,/WEB-INF/pages/book-add.jsp,/WEB-INF/pages/user-add.jsp,/WEB-INF/pages/book.jsp</param-value>
+  </context-param>
+  <context-param>
+    <param-name>userAuthority</param-name>
+    <param-value>/WEB-INF/pages/fine.jsp,/WEB-INF/pages/tab.jsp,/WEB-INF/pages/user-update.jsp,/WEB-INF/pages/book-update.jsp,/WEB-INF/pages/book-add.jsp,</param-value>
+  </context-param>
+  <context-param>
+    <param-name>adminAuthority</param-name>
+    <param-value>/WEB-INF/pages/book-borrow.jsp,/WEB-INF/pages/book-return.jsp</param-value>
+  </context-param>
+  <context-param>
+    <param-name>error-404</param-name>
+    <param-value>/404.jsp</param-value>
+  </context-param>
+</web-app>
